@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.text-container {
+    width: 800px; /* Set your desired width */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+  }
+  
+
+.container {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    height: 965px;
+    /* border: solid black; */
+    margin: 10px;
+}
+
+.left-side {
+  background-color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:#4C6B46;
+}
+
+.right-side {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-image1 {
+    width: 16vw;
+    height: 32.1vh;
+    object-fit: cover;
+    /* border-radius: 50%; */
+}
+
+.circle-image2 {
+  width: 8vwpx;
+  height: 16.5vh;
+  object-fit: cover;
+  /* border-radius: 50%; */
+  margin-right: 60px;
+  position: absolute;
+  top:36%;
+  left:83%;
+  transform:translate(-50%, -50%) ;
+z-index: 9999;
+}
+.description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*  tab  */
+/* Flex container styles */
+.tab-container {
+    display: flex;
+    flex-direction: row; /* Items are arranged in a row */
+    flex-wrap: wrap; /* Allow items to wrap to new rows, because the  */
+    width:75%;
+  
+  }
+  
+  /* Tab label styles */
+  .tab-label {
+    flex-grow: 1.3; /* Labels grow to fill remaining space in the row */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4C6B46;
+    cursor: pointer;
+    /* transition: all 0.2s ease; */
+    transform: translateY(0);
+    /* margin-left: -3rem; */
+    padding-left: 3rem;
+    text-align: center;
+    border-radius: 7px 0px 0px 0px;
+    color:white;
+    width:1%;
+  }
+  
+  
+  /* Tab content styles */
+  .tab-content {
+    background-color: #4C6B46;
+    display: none; /* Hide tab content by default */
+    padding: 20px;
+    /* border: 1px solid lightgray; */
+    order: 1; /* Initial order value for tab content */
+    flex-basis: 100%; /* Content takes up full width in its own row */
+    border-radius: 0px 0px 7px 7px;
+}
+  
+  /* Styles for the selected tab */
+  input[type="radio"]:checked + .tab-label {
+    /* background-color: rgb(96, 63, 63); */
+    /* box-shadow: 0 -4px 4px silver; */
+    /* transform: translateY(4px); */
+  }
+
+  input[type="radio"] {
+    transition: all 0.2s ease;
+    transform: translateY(0);
+  }
+  input[type="radio"]:checked  {
+    transform: translateY(4px);
+  }
+  
+  input[type="radio"]:checked + .tab-label + .tab-content {
+    display: block; /* Display the selected tab content */
+    order: 2; /* Order value for selected tab content */
+  }
+  
+  input[type="radio"]:focus + .tab-label,
+  input[type="radio"]:focus-visible + .tab-label {
+    outline: 2px solid blue;
+    outline-offset: -2px;
+  }
+  
+  /* Hide the radio buttons */
+  input[type="radio"] {
+    width: 1rem;
+    margin: 0 1rem;
+    z-index: 1;
+    outline: 0;
+    display: none;
+  }
+ 
+
+  
+  body {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+  }
+
+
+
+  /* login registration css */
+
+.tab-content.input-group
+{
+  top:180px;
+  position:absolute;
+  width:280px;
+  transition:0.5s; 
+}
+.input-field
+{
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  border-left:0;
+  border-top:0;
+  border-right:0;
+  border-bottom:1px solid #999;
+  outline:none;
+  background:transparent;
+  color: beige;
+}
+.submit-btn
+{
+  width:85%;
+  padding:10px 30px;
+  cursor:pointer;
+  display:block;
+  margin:auto;
+  background:linear-gradient(to right, #ff105f, #ffad06);
+  border:0;
+  outline:none;
+  border-radius:30px;
+}
+.check-box
+{
+  margin:30px 10px 30px 0;
+}
+
+/* span
+{
+  color:#954646;
+  font-size:12px;
+  bottom:68px;
+  position:absolute;
+} */
+#login
+{
+  left:50px;
+}
+#register
+{
+  left:450px;
+}
