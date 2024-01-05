@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f2f2;
+    margin: 20px;
+}
+
+.all-combinations {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.triangle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    padding: 5px;
+}
+
+.prime {
+    color: #e44d26; /* Red color for prime numbers */
+    font-weight: bold;
+}
+
+.not-highlighted-primes {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.all-primes {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.error-ratio {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
