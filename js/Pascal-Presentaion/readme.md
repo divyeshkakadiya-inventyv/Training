@@ -20,7 +20,8 @@ This repository contains a JavaScript program to generate Pascal's Triangle and 
 4. Explore the generated Pascal's Triangle with highlighted prime numbers and a list of prime numbers not highlighted.
 
 ## Screenshots
-Include screenshots or GIFs to visually demonstrate the program in action.
+![image](https://github.com/DivyeshKakadiya/Training/assets/153285379/ccab477a-fc23-419f-9e9f-92de63ba7846)
+
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
