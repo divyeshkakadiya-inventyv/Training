@@ -15,6 +15,7 @@ function getPermutations(input) {
     return Array.from(result);
 }
 
+
 function isPrime(n) {
     if (n <= 1) {
         return false;
@@ -118,6 +119,7 @@ if (isNaN(inputNumber) || inputNumber < 1000) {
             row.appendChild(cell);
         }
         triangleContainer.appendChild(row);
+        
     }
 
     document.body.appendChild(triangleContainer);
