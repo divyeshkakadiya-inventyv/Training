@@ -18,7 +18,7 @@ impl Shape {
     }
 
     fn circle(&self) -> f32 {
-        if self.length > self.breath { 3.14 * (self.breath / 2.0) } else { 3.14 * (self.length / 2.0) }
+        if self.length > self.breath { 3.14 * (self.breath / 2.0) * (self.breath / 2.0) } else { 3.14 * (self.length / 2.0) * (self.length / 2.0) }
     }
     
 }
