@@ -5,13 +5,13 @@
     "email": "aarav.patel@example.com",
     "address": "123, ABC Street, XYZ Colony",
     "marks": [
-      85,
-      92,
-      78,
-      90,
-      88
+      85.0,
+      92.0,
+      78.0,
+      90.0,
+      88.0
     ],
-    "pecentage": 86.0,
+    "pecentage": 86.6,
     "grade": "A"
   },
   {
@@ -20,13 +20,13 @@
     "email": "sanya.sharma@example.com",
     "address": "456, PQR Street, LMN Colony",
     "marks": [
-      75,
-      80,
-      88,
-      79,
-      95
+      75.0,
+      80.0,
+      88.0,
+      79.0,
+      95.0
     ],
-    "pecentage": 83.0,
+    "pecentage": 83.4,
     "grade": "A"
   },
   {
@@ -35,13 +35,13 @@
     "email": "arjun.gupta@example.com",
     "address": "789, DEF Street, GHI Colony",
     "marks": [
-      92,
-      89,
-      94,
-      87,
-      80
+      92.0,
+      89.0,
+      94.0,
+      87.0,
+      80.0
     ],
-    "pecentage": 88.0,
+    "pecentage": 88.4,
     "grade": "A"
   },
   {
@@ -50,13 +50,13 @@
     "email": "neha.verma@example.com",
     "address": "1011, JKL Street, MNO Colony",
     "marks": [
-      78,
-      85,
-      90,
-      92,
-      88
+      78.0,
+      85.0,
+      90.0,
+      92.0,
+      88.0
     ],
-    "pecentage": 86.0,
+    "pecentage": 86.6,
     "grade": "A"
   },
   {
@@ -65,13 +65,13 @@
     "email": "rahul.kumar@example.com",
     "address": "1213, PQR Street, STU Colony",
     "marks": [
-      85,
-      88,
-      76,
-      91,
-      94
+      85.0,
+      88.0,
+      76.0,
+      91.0,
+      94.0
     ],
-    "pecentage": 86.0,
+    "pecentage": 86.8,
     "grade": "A"
   },
   {
@@ -80,13 +80,13 @@
     "email": "aisha.singh@example.com",
     "address": "1415, UVW Street, XYZ Colony",
     "marks": [
-      90,
-      92,
-      85,
-      78,
-      88
+      90.0,
+      92.0,
+      85.0,
+      78.0,
+      88.0
     ],
-    "pecentage": 86.0,
+    "pecentage": 86.6,
     "grade": "A"
   },
   {
@@ -95,13 +95,13 @@
     "email": "vikram.yadav@example.com",
     "address": "1617, GHI Street, JKL Colony",
     "marks": [
-      85,
-      80,
-      88,
-      79,
-      95
+      85.0,
+      80.0,
+      88.0,
+      79.0,
+      95.0
     ],
-    "pecentage": 85.0,
+    "pecentage": 85.4,
     "grade": "A"
   },
   {
@@ -110,13 +110,13 @@
     "email": "anaya.mishra@example.com",
     "address": "1819, MNO Street, PQR Colony",
     "marks": [
-      92,
-      89,
-      94,
-      87,
-      80
+      92.0,
+      89.0,
+      94.0,
+      87.0,
+      80.0
     ],
-    "pecentage": 88.0,
+    "pecentage": 88.4,
     "grade": "A"
   },
   {
@@ -125,13 +125,13 @@
     "email": "aryan.singh@example.com",
     "address": "2021, STU Street, UVW Colony",
     "marks": [
-      78,
-      85,
-      90,
-      92,
-      88
+      78.0,
+      85.0,
+      90.0,
+      92.0,
+      88.0
     ],
-    "pecentage": 86.0,
+    "pecentage": 86.6,
     "grade": "A"
   },
   {
@@ -140,13 +140,13 @@
     "email": "ishita.sharma@example.com",
     "address": "2223, XYZ Street, ABC Colony",
     "marks": [
-      85,
-      88,
-      76,
-      91,
-      94
+      85.0,
+      88.0,
+      76.0,
+      91.0,
+      94.0
     ],
-    "pecentage": 86.0,
+    "pecentage": 86.8,
     "grade": "A"
   }
 ]
