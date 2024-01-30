@@ -1,0 +1,152 @@
+[
+  {
+    "marks": [
+      85.0,
+      92.0,
+      78.0,
+      90.0,
+      88.0
+    ],
+    "phone": "+91 9876543210",
+    "address": "123, ABC Street, XYZ Colony",
+    "email": "aarav.patel@example.com",
+    "grade": "A",
+    "percentage": 86.5999984741211,
+    "name": "Aarav Patel"
+  },
+  {
+    "email": "sanya.sharma@example.com",
+    "percentage": 83.4000015258789,
+    "address": "456, PQR Street, LMN Colony",
+    "phone": "+91 8765432109",
+    "name": "Sanya Sharma",
+    "marks": [
+      75.0,
+      80.0,
+      88.0,
+      79.0,
+      95.0
+    ],
+    "grade": "A"
+  },
+  {
+    "phone": "+91 7456123980",
+    "name": "Arjun Gupta",
+    "percentage": 88.4000015258789,
+    "address": "789, DEF Street, GHI Colony",
+    "marks": [
+      92.0,
+      89.0,
+      94.0,
+      87.0,
+      80.0
+    ],
+    "grade": "A",
+    "email": "arjun.gupta@example.com"
+  },
+  {
+    "marks": [
+      78.0,
+      85.0,
+      90.0,
+      92.0,
+      88.0
+    ],
+    "percentage": 86.5999984741211,
+    "grade": "A",
+    "name": "Neha Verma",
+    "phone": "+91 9123456780",
+    "address": "1011, JKL Street, MNO Colony",
+    "email": "neha.verma@example.com"
+  },
+  {
+    "percentage": 86.80000305175781,
+    "grade": "A",
+    "phone": "+91 8309765412",
+    "name": "Rahul Kumar",
+    "address": "1213, PQR Street, STU Colony",
+    "email": "rahul.kumar@example.com",
+    "marks": [
+      85.0,
+      88.0,
+      76.0,
+      91.0,
+      94.0
+    ]
+  },
+  {
+    "address": "1415, UVW Street, XYZ Colony",
+    "percentage": 86.5999984741211,
+    "phone": "+91 7890123456",
+    "email": "aisha.singh@example.com",
+    "name": "Aisha Singh",
+    "marks": [
+      90.0,
+      92.0,
+      85.0,
+      78.0,
+      88.0
+    ],
+    "grade": "A"
+  },
+  {
+    "percentage": 85.4000015258789,
+    "email": "vikram.yadav@example.com",
+    "grade": "A",
+    "name": "Vikram Yadav",
+    "phone": "+91 9876501234",
+    "address": "1617, GHI Street, JKL Colony",
+    "marks": [
+      85.0,
+      80.0,
+      88.0,
+      79.0,
+      95.0
+    ]
+  },
+  {
+    "percentage": 88.4000015258789,
+    "name": "Anaya Mishra",
+    "grade": "A",
+    "phone": "+91 7012345678",
+    "email": "anaya.mishra@example.com",
+    "address": "1819, MNO Street, PQR Colony",
+    "marks": [
+      92.0,
+      89.0,
+      94.0,
+      87.0,
+      80.0
+    ]
+  },
+  {
+    "grade": "A",
+    "name": "Aryan Singh",
+    "email": "aryan.singh@example.com",
+    "phone": "+91 9123456789",
+    "address": "2021, STU Street, UVW Colony",
+    "marks": [
+      78.0,
+      85.0,
+      90.0,
+      92.0,
+      88.0
+    ],
+    "percentage": 86.5999984741211
+  },
+  {
+    "percentage": 86.80000305175781,
+    "name": "Ishita Sharma",
+    "grade": "A",
+    "phone": "+91 9876543211",
+    "email": "ishita.sharma@example.com",
+    "marks": [
+      85.0,
+      88.0,
+      76.0,
+      91.0,
+      94.0
+    ],
+    "address": "2223, XYZ Street, ABC Colony"
+  }
+]
