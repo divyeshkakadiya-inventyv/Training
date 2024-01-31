@@ -4,7 +4,9 @@ mod services;
 // use services::frequencies::frequency;
 // use services::frequencies::string_cut;
 
-use crate::services::hashmap_task::student;
+use services::table_task::{calculate::calculate_height, make_table};
+
+// use crate::services::hashmap_task::student;
 
 fn main() {
 
@@ -29,6 +31,12 @@ fn main() {
     // println!("final string : {:?}" , frequency::fit_into_string(str , &mut common_fr));
 
     // println!("{:?}" , employee::insert_data_using_hashmap());
-    println!("{:?}" , student::insert_data_using_hashmap());
+    // println!("{:?}" , student::insert_data_using_hashmap());
+
+    make_table::make();
+
+    // let mut str = "Description(Type)";
+    // println!("{}" , calculate_height(&mut str.to_string() , &18 , 48));
+    // println!()
 
 }

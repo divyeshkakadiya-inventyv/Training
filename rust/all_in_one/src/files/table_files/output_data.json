@@ -1,0 +1,336 @@
+{
+  "Rows": [
+    {
+      "cells": [
+        {
+          "cell_content": "Descri\nption(\nType)\n"
+        },
+        {
+          "cell_content": "Date I\nn Svc"
+        },
+        {
+          "cell_content": "Cost/ B\nasis"
+        },
+        {
+          "cell_content": "Prior 1\n79 Bo\nnus"
+        },
+        {
+          "cell_content": "Bus. U\nse Per.\n"
+        },
+        {
+          "cell_content": "Metho\nd"
+        },
+        {
+          "cell_content": "Cv"
+        },
+        {
+          "cell_content": "Life"
+        },
+        {
+          "cell_content": "Crnt. 1\n79"
+        },
+        {
+          "cell_content": "Crnt. B\nonus"
+        },
+        {
+          "cell_content": "Prior R\neg. De\npr."
+        },
+        {
+          "cell_content": "Crnt. D\nepr. D\neduc."
+        },
+        {
+          "cell_content": "Next Y\near De\npr."
+        },
+        {
+          "cell_content": "Prior A\nMT"
+        },
+        {
+          "cell_content": "Crnt. A\nMT"
+        },
+        {
+          "cell_content": "Crnt. A\nmo. D\nep."
+        }
+      ],
+      "row_height": 80,
+      "row_width": 782,
+      "row_type": "HeaderRow"
+    },
+    {
+      "cells": [
+        {
+          "cell_content": "Asset1\n - Hou\nse In N\nY(Ind\nian Re\nservat\nion 5 y\near no\nn farm\n prope\nrty"
+        },
+        {
+          "cell_content": "01/01/\n2024"
+        },
+        {
+          "cell_content": "250,00\n0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "100 M\nACRS\n 150"
+        },
+        {
+          "cell_content": "HY"
+        },
+        {
+          "cell_content": "3"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        }
+      ],
+      "row_height": 220,
+      "row_width": 782,
+      "row_type": "DataRows"
+    },
+    {
+      "cells": [
+        {
+          "cell_content": "Asset2\n - Hou\nse In C\nA(Ind\nian Re\nservat\nion 10\n year f\narm p\nropert\ny)"
+        },
+        {
+          "cell_content": "01/01/\n2022"
+        },
+        {
+          "cell_content": "15000\n0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "100 M\nACRS\n 150"
+        },
+        {
+          "cell_content": "CA"
+        },
+        {
+          "cell_content": "3"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        }
+      ],
+      "row_height": 220,
+      "row_width": 782,
+      "row_type": "DataRows"
+    },
+    {
+      "cells": [
+        {
+          "cell_content": "Asset3\n - Car \n-Ford(\nCar Pr\noperty\n)"
+        },
+        {
+          "cell_content": "01/01/\n2019"
+        },
+        {
+          "cell_content": "10000\n00"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "100 M\nACRS\n 150"
+        },
+        {
+          "cell_content": "ford"
+        },
+        {
+          "cell_content": "3"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        }
+      ],
+      "row_height": 120,
+      "row_width": 782,
+      "row_type": "DataRows"
+    },
+    {
+      "cells": [
+        {
+          "cell_content": "Asset3\n - Car \n-Audi(\nCar Pr\noperty\n)"
+        },
+        {
+          "cell_content": "01/01/\n2017"
+        },
+        {
+          "cell_content": "15000\n0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "100 M\nACRS\n 150"
+        },
+        {
+          "cell_content": "ford"
+        },
+        {
+          "cell_content": "3"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        }
+      ],
+      "row_height": 120,
+      "row_width": 782,
+      "row_type": "DataRows"
+    },
+    {
+      "cells": [
+        {
+          "cell_content": "Asset3\n - Car \n-BMW\n(Car P\nropert\ny)"
+        },
+        {
+          "cell_content": "01/01/\n2015"
+        },
+        {
+          "cell_content": "15000\n0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "100 M\nACRS\n 150"
+        },
+        {
+          "cell_content": "ford"
+        },
+        {
+          "cell_content": "3"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        },
+        {
+          "cell_content": "0"
+        }
+      ],
+      "row_height": 120,
+      "row_width": 782,
+      "row_type": "DataRows"
+    }
+  ],
+  "table_height": 880,
+  "table_width": 6
+}
