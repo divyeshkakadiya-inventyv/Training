@@ -103,7 +103,6 @@ lazy_static! {
     };
 }
 
-
 /// caluclate height of cells from the content of cells and its font size
 pub fn calculate_height(content: &mut String, size: &usize, cell_width: usize) -> usize {
     let mut cell_height: usize = 20;
@@ -125,7 +124,6 @@ pub fn calculate_height(content: &mut String, size: &usize, cell_width: usize) -
             cell_height += 20;
             temp_string.push('\n');
         }
-
     }
 
     // Replace the content of content with temp_string

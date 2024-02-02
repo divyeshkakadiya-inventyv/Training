@@ -1,4 +1,4 @@
-use super::common_st::{Employee, Skills, Position};
+use super::common_st::{Employee, Position, Skills};
 use serde::{Deserialize, Serialize};
 use std::fs;
 
@@ -17,11 +17,17 @@ pub fn insert_data() -> String {
                     let mut filter3 = Vec::new();
 
                     for data in json_data {
-                        if data.position == Some(Position::Sd) && data.skills.contains(&"Rust".to_string()) {
+                        if data.position == Some(Position::Sd)
+                            && data.skills.contains(&"Rust".to_string())
+                        {
                             filter1.push(data);
-                        } else if data.position == Some(Position::Jsd) && data.skills.contains(&"Java".to_string()) {
+                        } else if data.position == Some(Position::Jsd)
+                            && data.skills.contains(&"Java".to_string())
+                        {
                             filter2.push(data);
-                        } else if data.position == Some(Position::Ssd) || data.skills.contains(&"C#".to_string()) {
+                        } else if data.position == Some(Position::Ssd)
+                            || data.skills.contains(&"C#".to_string())
+                        {
                             filter3.push(data);
                         }
                     }

@@ -1,4 +1,3 @@
-
 ///add "_" at the poistion where the string have character we add in example 'e'
 pub fn cut() -> Vec<char> {
     let str = "Welcome to inventyv software services";

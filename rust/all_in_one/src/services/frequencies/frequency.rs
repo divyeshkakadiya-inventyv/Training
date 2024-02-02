@@ -22,7 +22,10 @@ pub fn get_frequency(data: Vec<char>) -> Vec<(char, i32)> {
 }
 
 /// Merges two vectors of character frequencies into a tuple of two vectors.
-pub fn merge_frequency(first: &mut Vec<(char, i32)>, second: &mut Vec<(char, i32)>) -> (Vec<(char, i32)>, Vec<(char, i32)>) {
+pub fn merge_frequency(
+    first: &mut Vec<(char, i32)>,
+    second: &mut Vec<(char, i32)>,
+) -> (Vec<(char, i32)>, Vec<(char, i32)>) {
     let mut common: Vec<(char, i32)> = Vec::new();
     let mut left: Vec<(char, i32)> = Vec::new();
 
@@ -54,7 +57,6 @@ pub fn merge_frequency(first: &mut Vec<(char, i32)>, second: &mut Vec<(char, i32
     (common, left)
 }
 
-
 /// Sorts a vector of character frequencies based on the characters.
 pub fn sort_freq(data: Vec<(char, i32)>) -> Vec<(char, i32)> {
     let mut sorted_data = data;
@@ -70,7 +72,6 @@ pub fn sort_freq(data: Vec<(char, i32)>) -> Vec<(char, i32)> {
 
     sorted_data
 }
-
 
 /// Fits characters with frequencies into a vector of characters based on the provided string.
 pub fn fit_into_string(mut str: Vec<char>, common_fr: &mut Vec<(char, i32)>) -> String {

@@ -1,5 +1,6 @@
 use std::cell;
 
+use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
 use super::table_task::calculate::calculate_height;
@@ -52,9 +53,8 @@ pub enum Skills {
     Python,
 }
 
-
 ///implemantion of the student structure
-/// 
+///
 impl Student {
     /// Calculates the percentage from the marks of the student.
     pub fn calculate_percentage(&self) -> f32 {
@@ -84,9 +84,7 @@ impl Student {
     }
 }
 
-
-
-///structure for the desirealize the data
+///structure for the Inputdata row of json file
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct InputData {
@@ -119,24 +117,23 @@ impl Cell {
     //     self.cell_height = cell_height;
     // }
 
-    pub fn new(cell_content:String) -> Cell{
-            Cell{cell_content}
+    pub fn new(cell_content: String) -> Cell {
+        Cell { cell_content }
     }
 }
 
-#[derive(Debug , Serialize , Deserialize)]
-pub enum RowType{
+#[derive(Debug, Serialize, Deserialize)]
+pub enum RowType {
     HeaderRow,
-    DataRows
+    DataRows,
 }
-
 
 #[derive(Debug, Serialize)]
 pub struct Row {
     pub cells: Vec<Cell>,
     pub row_height: usize,
     pub row_width: usize,
-    pub row_type:RowType
+    pub row_type: RowType,
 }
 
 impl Row {
@@ -150,18 +147,29 @@ impl Row {
     //     max_height
     // }
 
-    pub fn new(mut cells: Vec<Cell> , row_type : RowType , size : usize , pagewidth : usize , cell_count:&usize) -> Row { 
-        println!("{}" , cell_count);
+    pub fn new(
+        mut cells: Vec<Cell>,
+        row_type: RowType,
+        size: usize,
+        pagewidth: usize,
+        cell_count: &usize,
+    ) -> Row {
+        println!("{}", cell_count);
         let cell_width = (pagewidth - 10 - 10) / *cell_count;
-        let row_width = pagewidth-10;
+        let row_width = pagewidth - 10;
         let mut row_height = 0;
-        for content in &mut cells{
-            let cell_height = calculate_height(&mut content.cell_content, &size , cell_width);
+        for content in &mut cells {
+            let cell_height = calculate_height(&mut content.cell_content, &size, cell_width);
             row_height = std::cmp::max(row_height, cell_height);
-            println!( "{} : {}" , cell_height , row_height);
+            println!("{} : {}", cell_height, row_height);
         }
-        println!("{}" , row_height);
-        Row { cells , row_height , row_width , row_type }
+        println!("{}", row_height);
+        Row {
+            cells,
+            row_height,
+            row_width,
+            row_type,
+        }
     }
 }
 
@@ -184,5 +192,19 @@ impl Table {
             table_height,
             table_width,
         }
+    }
+}
+
+#[derive(Debug)]
+pub struct data{
+    pub id : usize,
+    pub name : String,
+    pub timestamp : DateTime<Utc>
+}
+
+
+impl data {
+    pub fn new (id:usize , name:String , timestamp:DateTime<Utc>) -> data{
+        data {id , name , timestamp}
     }
 }

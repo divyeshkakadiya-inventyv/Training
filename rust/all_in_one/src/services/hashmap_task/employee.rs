@@ -1,11 +1,10 @@
-use std::{fs, collections::HashMap, hash};
-use serde_json::{Value, json};
+use serde_json::{json, Value};
+use std::{collections::HashMap, fs, hash};
 
 use crate::services::common_st::{Employee, Position};
 
 ///fetch data from the Employee.json and filter out according to the condition and write it in different files after converting into hashmap
 pub fn insert_data_using_hashmap() -> String {
-
     let input_path = "./src/files/Employee.json";
 
     match fs::read_to_string(input_path) {
@@ -18,11 +17,17 @@ pub fn insert_data_using_hashmap() -> String {
                     let mut filter3 = Vec::new();
 
                     for data in json_data {
-                        if data.position == Some(Position::Sd) && data.skills.contains(&"Rust".to_string()) {
+                        if data.position == Some(Position::Sd)
+                            && data.skills.contains(&"Rust".to_string())
+                        {
                             filter1.push(data);
-                        } else if data.position == Some(Position::Jsd) && data.skills.contains(&"Java".to_string()) {
+                        } else if data.position == Some(Position::Jsd)
+                            && data.skills.contains(&"Java".to_string())
+                        {
                             filter2.push(data);
-                        } else if data.position == Some(Position::Ssd) || data.skills.contains(&"C#".to_string()) {
+                        } else if data.position == Some(Position::Ssd)
+                            || data.skills.contains(&"C#".to_string())
+                        {
                             filter3.push(data);
                         }
                     }
@@ -60,27 +65,27 @@ pub fn insert_data_using_hashmap() -> String {
         }
         Err(err) => {
             return err.to_string();
-        },
+        }
     }
 }
 
 ///convert data of the vector to the hashmap
-fn vec_to_hashmap(data : Vec<Employee>) -> Vec<HashMap<String , Value>>{
-    let mut final_data :Vec<HashMap<String , Value>> = Vec::new();
+fn vec_to_hashmap(data: Vec<Employee>) -> Vec<HashMap<String, Value>> {
+    let mut final_data: Vec<HashMap<String, Value>> = Vec::new();
 
-    for i in data{
-        let mut map : HashMap<String , Value> = HashMap::new();
-        map.insert( "name".to_string() , Value::String(i.name));
-        map.insert( "age".to_string() , json!(i.age));
-        map.insert( "Skills".to_string() , json!(i.skills));
-        if !i.position.is_none(){
-            map.insert( "position".to_string() , json!(i.position));
+    for i in data {
+        let mut map: HashMap<String, Value> = HashMap::new();
+        map.insert("name".to_string(), Value::String(i.name));
+        map.insert("age".to_string(), json!(i.age));
+        map.insert("Skills".to_string(), json!(i.skills));
+        if !i.position.is_none() {
+            map.insert("position".to_string(), json!(i.position));
         }
-        if !i.experience.is_none(){
-            map.insert( "experiance(y)".to_string() , json!(i.experience));
+        if !i.experience.is_none() {
+            map.insert("experiance(y)".to_string(), json!(i.experience));
         }
         final_data.push(map);
-    } 
+    }
 
     final_data
 }
