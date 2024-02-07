@@ -46,23 +46,28 @@ pub fn assign_task() {
 
 ///assigning the task on chat , skills , language (hashmap task)
 pub fn assign() {
+    let esc_level = vec!["l5" , "l4" , "l3" , "l2" , "l1"];
     let emp_data = Arc::clone(&EMP_DATA);
     if let Ok(mut map) = Arc::clone(&ESCALATION).write() {
-        for (key, value) in map.iter_mut() {
-            if let Ok(mut vec) = value.write() {
-                vec.retain(|e| {
-                    for i in emp_data.read().unwrap().iter() {
-                        if i.status == Status::Online
-                            && i.skills.contains(&e.skill)
-                            && i.language == e.language
-                        {
-                            return false;
-                        }
+        for level in esc_level{
+            for (key, value) in map.iter_mut() {
+                if key.contains(level){
+                    if let Ok(mut vec) = value.write() {
+                        vec.retain(|e| {
+                            for i in emp_data.read().unwrap().iter() {
+                                if i.status == Status::Online
+                                    && i.skills.contains(&e.skill)
+                                    && i.language == e.language
+                                {
+                                    return false;
+                                }
+                            }
+                            true
+                        })
+                    } else {
+                        println!("error is generated in iterate");
                     }
-                    true
-                })
-            } else {
-                println!("error is generated in iterate");
+                }
             }
         }
     } else {

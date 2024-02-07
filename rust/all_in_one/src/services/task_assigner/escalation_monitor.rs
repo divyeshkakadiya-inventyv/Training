@@ -61,5 +61,5 @@ pub fn esc_level_monitor() {
         }
     }
 
-    println!("{:?}", Arc::clone(&ESCALATION).read().unwrap());
+    // println!("{:?}", Arc::clone(&ESCALATION).read().unwrap());
 }
