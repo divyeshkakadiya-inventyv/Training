@@ -1,6 +1,7 @@
 use std::cell;
 
 use chrono::{DateTime, Utc};
+use rand::Rng;
 use serde::{Deserialize, Serialize};
 
 use super::table_task::calculate::calculate_height;
@@ -107,16 +108,10 @@ pub struct RowData {
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Cell {
-    // pub cell_height: usize,
-    // pub cell_width: usize,
     pub cell_content: String,
 }
 
 impl Cell {
-    // pub fn change_cell_height(&mut self, cell_height: usize) {
-    //     self.cell_height = cell_height;
-    // }
-
     pub fn new(cell_content: String) -> Cell {
         Cell { cell_content }
     }
@@ -196,15 +191,98 @@ impl Table {
 }
 
 #[derive(Debug)]
-pub struct data{
-    pub id : usize,
-    pub name : String,
-    pub timestamp : DateTime<Utc>
+pub struct data {
+    pub id: usize,
+    pub name: String,
+    pub timestamp: DateTime<Utc>,
 }
 
-
 impl data {
-    pub fn new (id:usize , name:String , timestamp:DateTime<Utc>) -> data{
-        data {id , name , timestamp}
+    pub fn new(id: usize, name: String, timestamp: DateTime<Utc>) -> data {
+        data {
+            id,
+            name,
+            timestamp,
+        }
+    }
+}
+
+//structures for the task_assigner Project
+//Employee struct for the task assigner
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Emp {
+    pub id: usize,
+    pub name: String,
+    pub skills: Vec<String>,
+    pub status: Status,
+    pub language: Language,
+}
+
+#[derive(Debug, Deserialize, Serialize, PartialEq)]
+pub enum Status {
+    Online,
+    Offline,
+}
+
+impl Status {
+    pub fn random() -> Self {
+        if rand::thread_rng().gen() {
+            Status::Online
+        } else {
+            Status::Offline
+        }
+    }
+}
+
+#[derive(Debug, Deserialize, Serialize, PartialEq, Clone)]
+pub enum Language {
+    English,
+    Spanish,
+}
+
+impl Language {
+    pub fn random() -> Self {
+        let mut rng = rand::thread_rng();
+        let random = rng.gen_range(0, 2);
+        match random {
+            0 => Language::English,
+            1 => Language::Spanish,
+            _ => todo!("not generated"),
+        }
+    }
+}
+//structs use at the runtime for generating random data
+#[derive(Debug, PartialEq, Deserialize, Serialize, Clone)]
+pub enum TaskType {
+    Call,
+    Chat,
+}
+
+impl TaskType {
+    pub fn random() -> Self {
+        if rand::thread_rng().gen() {
+            TaskType::Call
+        } else {
+            TaskType::Chat
+        }
+    }
+}
+
+#[derive(Debug, Clone , PartialEq)]
+pub struct Task {
+    pub skill: String,
+    pub available_at: TaskType,
+    pub language: Language,
+    pub time: DateTime<Utc>,
+}
+
+impl Task {
+    pub fn new(skill: String, available_at: TaskType, language: Language, time: DateTime<Utc>) -> Task {
+        Task {
+            skill,
+            available_at,
+            language,
+            time,
+        }
     }
 }

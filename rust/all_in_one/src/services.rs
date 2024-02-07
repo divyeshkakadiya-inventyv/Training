@@ -4,4 +4,5 @@ pub mod frequencies;
 pub mod hashmap_task;
 pub mod student;
 pub mod table_task;
+pub mod task_assigner;
 pub mod thread_task;

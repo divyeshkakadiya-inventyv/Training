@@ -1,4 +1,18 @@
-use services::thread_task::execute_task;
+use std::{
+    collections::{HashMap, VecDeque},
+    fs,
+    sync::{Arc, RwLock},
+    thread,
+    time::Duration,
+};
+
+use serde_json::Error;
+use services::task_assigner::{self, assigner, request_generator, static_loader};
+
+use crate::services::{
+    common_st::{Emp, Task},
+    task_assigner::data_changer,
+};
 
 mod services;
 // use services::hashmap_task::employee;
@@ -6,8 +20,52 @@ mod services;
 // use services::frequencies::frequency;
 // use services::frequencies::string_cut;
 
-
 // use crate::services::hashmap_task::student;
+
+use lazy_static::lazy_static;
+
+lazy_static! {
+    #[derive(Debug)]
+    pub static ref EMP_DATA:Arc<RwLock<Vec<Emp>>> = Arc::new(RwLock::new({
+        match fs::read_to_string("./src/files/task_assigner/Master_Data.json"){
+            Ok(value) => {
+                let data : Result<Vec<Emp> , Error> = serde_json::from_str(&value);
+                match data{
+                    Ok(data) => data,
+                    Err(err) => todo!("{}" , err),
+                }
+            }Err(err) => todo!("{}" , err),
+        }
+    }));
+
+    //for pending tasks
+    pub static ref TASKS:Arc<RwLock<VecDeque<Task>>> = Arc::new(RwLock::new(VecDeque::new()));
+
+    //for bifurcating
+    pub static ref CHAT_TASKS:Arc<RwLock<VecDeque<Task>>> = Arc::new(RwLock::new(VecDeque::new()));
+    pub static ref CALL_TASKS:Arc<RwLock<VecDeque<Task>>> = Arc::new(RwLock::new(VecDeque::new()));
+
+    pub static ref SKILLS: Arc<RwLock<Vec<String>>> = Arc::new(RwLock::new({
+        let mut temp: Vec<String> = Vec::new();
+        // Pushing data into the vector
+        temp.push("Customer Service".to_string());
+        temp.push("Problem-solving".to_string());
+        temp.push("Product Knowledge".to_string());
+        temp.push("Effective Communication".to_string());
+        temp.push("Time Management".to_string());
+        temp.push("Adaptability".to_string());
+        temp.push("Team Collaboration".to_string());
+        temp.push("Feedback Analysis".to_string());
+        temp.push("Proactive Engagement".to_string());
+        temp.push("Technical Proficiency".to_string());
+        temp.push("Cultural Sensitivity".to_string());
+        temp.push("Documentation".to_string());
+        temp
+    }));
+
+    #[derive(Debug)]
+    pub static ref ESCALATION : Arc<RwLock<HashMap<String , Arc<RwLock<VecDeque<Task>>>>>> = Arc::new(RwLock::new(HashMap::new()));
+}
 
 fn main() {
     // Uncomment the following lines to use the modules
@@ -39,7 +97,69 @@ fn main() {
     // println!("{}" , calculate_height(&mut str.to_string() , &18 , 48));
     // println!()
 
-    //thread task
-    execute_task(Vec::new());
-    
+    // thread task
+    // execute_task(Vec::new());
+
+    // task_assigner task ----------------------------------------------------------------------
+
+    // load the data to in lazy static
+    static_loader::escalation_generator(); //load static data in escalation hashmap
+
+    // println!("Data is loaded succesfully!!");
+
+    let data_adder = thread::spawn(move || loop {
+        thread::sleep(Duration::from_secs(1));
+        request_generator::random_task_generator();
+        println!("data is added");
+    });
+
+    // bifurcate the request on chat/call
+    // let bifurcater = thread::spawn(move || loop {
+    //     thread::sleep(Duration::from_secs(3));
+    //     task_assigner::bifurcator::bifurcate_task();
+    // });
+
+    //bifercate on all of the data like call/chat , skills , lan , levels
+    let bifurcater_esc = thread::spawn(move || loop {
+        thread::sleep(Duration::from_secs(2));
+        task_assigner::bifurcator::bifurcate_on_escalation();
+    });
+
+    let escalation_monitor = thread::spawn(move || loop {
+        thread::sleep(Duration::from_secs(4));
+        task_assigner::escalation_monitor::esc_level_monitor();
+        println!("escalation level is changed!!");
+    });
+
+    // assign the task if the emp is available
+    let assigner = thread::spawn(move || loop {
+        thread::sleep(Duration::from_secs(3));
+        assigner::assign();
+        println!("Task is assigned!!!");
+    });
+
+    let skill_changer = thread::spawn(move || loop {
+        thread::sleep(Duration::from_secs(10));
+        data_changer::skill_changer();
+        println!("skill is Shuffled!!");
+    });
+    let language_changer = thread::spawn(move || loop {
+        thread::sleep(Duration::from_secs(10));
+        data_changer::language_changer();
+        println!("language is Shuffled!!");
+    });
+    let status_changer = thread::spawn(move || loop {
+        thread::sleep(Duration::from_secs(10));
+        data_changer::status_changer();
+        println!("status is Shuffle!!");
+    });
+
+    data_adder.join().unwrap();
+    // bifurcater.join().unwrap();
+    bifurcater_esc.join().unwrap();
+    escalation_monitor.join().unwrap();
+    assigner.join().unwrap();
+    skill_changer.join().unwrap();
+    language_changer.join().unwrap();
+    status_changer.join().unwrap();
 }
