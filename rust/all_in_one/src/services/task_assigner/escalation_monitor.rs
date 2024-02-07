@@ -1,10 +1,16 @@
-use std::{collections::{HashMap, VecDeque}, ops::Deref, sync::Arc};
+use std::{
+    collections::{HashMap, VecDeque},
+    ops::Deref,
+    sync::Arc,
+};
 
 use chrono::{Duration, Timelike, Utc};
 
 use crate::{services::common_st::Task, ESCALATION};
 
 use super::bifurcator::key_generator;
+
+///check the escalation all the time and chnging the level of escalation by time in l1..l5
 pub fn esc_level_monitor() {
     let mut task_channel: HashMap<String, VecDeque<Task>> = HashMap::new();
     match Arc::clone(&ESCALATION).read() {
@@ -12,7 +18,7 @@ pub fn esc_level_monitor() {
             for (key, value) in map.iter() {
                 if let Ok(mut vec) = value.write() {
                     if !&vec.is_empty() {
-                        for i in 0..vec.len(){
+                        for i in 0..vec.len() {
                             let mut key = String::new();
                             let stay_time = Utc::now().second() - vec[i].time.second();
                             if stay_time > 30 && stay_time < 60 {
@@ -45,15 +51,15 @@ pub fn esc_level_monitor() {
 
     //changing the escalation level from l1 to l5 according to time
     let ref_escalation = Arc::clone(&ESCALATION);
-    for (key , mut value) in task_channel{
-        if let Ok(map) = ref_escalation.write(){
-            if let Some(vec) = map.get(&key){
-                if let Ok(mut vec) = vec.write(){
-                        vec.append(&mut value);
+    for (key, mut value) in task_channel {
+        if let Ok(map) = ref_escalation.write() {
+            if let Some(vec) = map.get(&key) {
+                if let Ok(mut vec) = vec.write() {
+                    vec.append(&mut value);
                 }
             }
-        } 
+        }
     }
 
-    println!("{:?}" , Arc::clone(&ESCALATION).read().unwrap());
+    println!("{:?}", Arc::clone(&ESCALATION).read().unwrap());
 }

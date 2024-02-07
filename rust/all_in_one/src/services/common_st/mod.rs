@@ -268,7 +268,7 @@ impl TaskType {
     }
 }
 
-#[derive(Debug, Clone , PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Task {
     pub skill: String,
     pub available_at: TaskType,
@@ -277,7 +277,12 @@ pub struct Task {
 }
 
 impl Task {
-    pub fn new(skill: String, available_at: TaskType, language: Language, time: DateTime<Utc>) -> Task {
+    pub fn new(
+        skill: String,
+        available_at: TaskType,
+        language: Language,
+        time: DateTime<Utc>,
+    ) -> Task {
         Task {
             skill,
             available_at,

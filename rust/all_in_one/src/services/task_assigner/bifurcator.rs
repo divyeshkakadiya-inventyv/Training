@@ -5,7 +5,7 @@ use crate::{
     CALL_TASKS, CHAT_TASKS, ESCALATION, TASKS,
 };
 
-///bifurcate_task on chat/call
+///bifurcate task on chat/call
 pub fn bifurcate_task() {
     let pending_tasks = TASKS.clone();
     let chat_tasks = Arc::clone(&CHAT_TASKS);
@@ -33,7 +33,6 @@ pub fn bifurcate_task() {
 
     println!("Data is bifurcate!!");
 }
-
 
 ///bifurcate on generated key by function and put in main pending task queue
 pub fn bifurcate_on_escalation() {
@@ -74,7 +73,7 @@ pub fn bifurcate_on_escalation() {
     }
 }
 
-//generate key with combination of some paramater
+///generate key with combination of some paramater
 pub fn key_generator(data: &Task, level: &str) -> String {
     let key = format!(
         "{}_{}_{}_{}",

@@ -5,6 +5,7 @@ use std::{
 
 use crate::{services::common_st::Skills, ESCALATION, SKILLS};
 
+///generate keys for the escalation queue
 pub fn escalation_generator() {
     let ref_escalation = Arc::clone(&ESCALATION);
     let ref_skills = Arc::clone(&SKILLS);

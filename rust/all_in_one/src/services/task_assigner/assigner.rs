@@ -44,27 +44,28 @@ pub fn assign_task() {
     println!("After :: {:#?}", call_tasks.read().unwrap());
 }
 
-//assigning the task on chat , skills , language (hashmap task)
-pub fn assign(){
+///assigning the task on chat , skills , language (hashmap task)
+pub fn assign() {
     let emp_data = Arc::clone(&EMP_DATA);
-    if let Ok(mut map) = Arc::clone(&ESCALATION).write(){
-        for (key , value) in map.iter_mut(){
-            if let Ok(mut vec) = value.write(){
+    if let Ok(mut map) = Arc::clone(&ESCALATION).write() {
+        for (key, value) in map.iter_mut() {
+            if let Ok(mut vec) = value.write() {
                 vec.retain(|e| {
                     for i in emp_data.read().unwrap().iter() {
-                        if i.status == Status::Online && i.skills.contains(&e.skill) && i.language == e.language
+                        if i.status == Status::Online
+                            && i.skills.contains(&e.skill)
+                            && i.language == e.language
                         {
                             return false;
                         }
                     }
-                    true 
+                    true
                 })
-            }
-            else{
+            } else {
                 println!("error is generated in iterate");
             }
         }
-    }else{
+    } else {
         println!("map is not available or not opening");
     }
 }
