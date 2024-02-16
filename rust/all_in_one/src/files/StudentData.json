@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Aarav Patel",
     "phone": "+91 9876543210",
     "email": "aarav.patel@example.com",
@@ -8,6 +9,7 @@
     "marks": [85, 92, 78, 90, 88]
   },
   {
+    "id": 2,
     "name": "Sanya Sharma",
     "phone": "+91 8765432109",
     "email": "sanya.sharma@example.com",
@@ -16,6 +18,7 @@
     "marks": [75, 80, 88, 79, 95]
   },
   {
+    "id": 3,
     "name": "Arjun Gupta",
     "phone": "+91 7456123980",
     "email": "arjun.gupta@example.com",
@@ -24,6 +27,7 @@
     "marks": [92, 89, 94, 87, 80]
   },
   {
+    "id": 4,
     "name": "Neha Verma",
     "phone": "+91 9123456780",
     "email": "neha.verma@example.com",
@@ -32,6 +36,7 @@
     "marks": [78, 85, 90, 92, 88]
   },
   {
+    "id": 5,
     "name": "Rahul Kumar",
     "phone": "+91 8309765412",
     "email": "rahul.kumar@example.com",
@@ -40,6 +45,7 @@
     "marks": [85, 88, 76, 91, 94]
   },
   {
+    "id": 6,
     "name": "Aisha Singh",
     "phone": "+91 7890123456",
     "email": "aisha.singh@example.com",
@@ -48,6 +54,7 @@
     "marks": [90, 92, 85, 78, 88]
   },
   {
+    "id": 7,
     "name": "Vikram Yadav",
     "phone": "+91 9876501234",
     "email": "vikram.yadav@example.com",
@@ -56,6 +63,7 @@
     "marks": [85, 80, 88, 79, 95]
   },
   {
+    "id": 8,
     "name": "Anaya Mishra",
     "phone": "+91 7012345678",
     "email": "anaya.mishra@example.com",
@@ -64,6 +72,7 @@
     "marks": [92, 89, 94, 87, 80]
   },
   {
+    "id": 9,
     "name": "Aryan Singh",
     "phone": "+91 9123456789",
     "email": "aryan.singh@example.com",
@@ -72,6 +81,7 @@
     "marks": [78, 85, 90, 92, 88]
   },
   {
+    "id": 10,
     "name": "Ishita Sharma",
     "phone": "+91 9876543211",
     "email": "ishita.sharma@example.com",
@@ -80,4 +90,3 @@
     "marks": [85, 88, 76, 91, 94]
   }
 ]
-

@@ -6,3 +6,4 @@ pub mod student;
 pub mod table_task;
 pub mod task_assigner;
 pub mod thread_task;
+pub mod rest_api;

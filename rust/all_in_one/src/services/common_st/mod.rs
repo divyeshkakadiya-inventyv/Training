@@ -9,6 +9,7 @@ use super::table_task::calculate::calculate_height;
 /// Represents information about a student.
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Student {
+    pub id : i32,
     pub name: String,
     pub phone: String,
     pub email: String,
@@ -21,6 +22,7 @@ pub struct Student {
 /// Represents information about an employee.
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Employee {
+    pub id : i32,
     pub name: String,
     pub age: u32,
     pub skills: Vec<String>,
@@ -291,3 +293,11 @@ impl Task {
         }
     }
 }
+
+#[derive(Serialize)]
+pub struct Message<T> {
+    pub status: u32,
+    pub message_key: String,
+    pub data: T,
+}
+

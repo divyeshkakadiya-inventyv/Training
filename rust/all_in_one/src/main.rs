@@ -6,15 +6,16 @@ use std::{
     time::Duration,
 };
 
-use serde_json::Error;
-use services::task_assigner::{self, assigner, request_generator, static_loader};
-
-use crate::services::{
-    common_st::{Emp, Task},
-    task_assigner::data_changer,
-};
+use serde_json::{Error, Value};
+use services::{common_st::Employee, rest_api::{customers::model::Customer, middlewares::get_middlewares, routes::get_routes, student::model::Student}, task_assigner::{self, assigner, request_generator, static_loader}};
+use utils::db_config::put_data;
+use uuid::Uuid;
+use crate::{services::{
+    common_st::{Emp, Task}, rest_api::{emp::model::Empl, server::start_rest_api_server}, task_assigner::data_changer
+}, utils::db_config::get_data};
 
 mod services;
+mod utils;
 // use services::hashmap_task::employee;
 // // use services::{student,employee};
 // use services::frequencies::frequency;
@@ -65,9 +66,58 @@ lazy_static! {
 
     #[derive(Debug)]
     pub static ref ESCALATION : Arc<RwLock<HashMap<String , Arc<RwLock<VecDeque<Task>>>>>> = Arc::new(RwLock::new(HashMap::new()));
+
+    pub static ref STUDENT: Arc<RwLock<HashMap<String , Student>>> = Arc::new(RwLock::new({
+        match fs::read_to_string("./src/files/StudentData.json"){
+            Ok(value) => {
+                let data : Result<Vec<Student> , Error> = serde_json::from_str(&value);
+                match data{
+                    Ok(vec) => {
+                        let mut map:HashMap<String , Student> = HashMap::new();
+                        for i in vec.into_iter(){
+                            let id = Uuid::new_v4().to_string();
+                            map.insert(id , i);
+                        }
+                        map
+                    },
+                    Err(err) => todo!("{}" , err),
+                }
+            }Err(err) => todo!("{}" , err),
+        }
+    }));
+    pub static ref EMP : Arc<RwLock<HashMap<String , Empl>>> = Arc::new(RwLock::new({
+        match fs::read_to_string("./src/files/Employee.json"){
+            Ok(value) => {
+                let data : Result<Vec<Empl> , Error> = serde_json::from_str(&value);
+                match data{
+                    Ok(vec) => {
+                        let mut map:HashMap<String , Empl> = HashMap::new();
+                        for i in vec.into_iter(){
+                            let id = Uuid::new_v4().to_string();
+                            map.insert(id , i);
+                        }
+                        map
+                    },
+                    Err(err) => todo!("{}" , err),
+                }
+            }Err(err) => todo!("{}" , err),
+        }
+    }));
+    pub static ref CUSTOMER : Arc<RwLock<Vec<Customer>>> = Arc::new(RwLock::new({
+        match fs::read_to_string("./src/files/task_assigner/Master_Data.json"){
+            Ok(value) => {
+                let data : Result<Vec<Customer> , Error> = serde_json::from_str(&value);
+                match data{
+                    Ok(data) => data,
+                    Err(err) => todo!("{}" , err),
+                }
+            }Err(err) => todo!("{}" , err),
+        }
+    }));
+    
 }
 
-fn main() {
+// fn main() {
     // Uncomment the following lines to use the modules
     // println!("employee data is {}", employee::insert_data());
     // println!("student data is {}", student::insert_data());
@@ -103,63 +153,71 @@ fn main() {
     // task_assigner task ----------------------------------------------------------------------
 
     // load the data to in lazy static
-    static_loader::escalation_generator(); //load static data in escalation hashmap
+    // static_loader::escalation_generator(); //load static data in escalation hashmap
 
-    // println!("Data is loaded succesfully!!");
+    // // println!("Data is loaded succesfully!!");
 
-    let data_adder = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(1));
-        request_generator::random_task_generator();
-        println!("data is added");
-    });
-
-    // bifurcate the request on chat/call
-    // let bifurcater = thread::spawn(move || loop {
-    //     thread::sleep(Duration::from_secs(3));
-    //     task_assigner::bifurcator::bifurcate_task();
+    // let data_adder = thread::spawn(move || loop {
+    //     thread::sleep(Duration::from_secs(1));
+    //     request_generator::random_task_generator();
+    //     println!("data is added");
     // });
 
-    //bifercate on all of the data like call/chat , skills , lan , levels
-    let bifurcater_esc = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(2));
-        task_assigner::bifurcator::bifurcate_on_escalation();
-    });
+    // // bifurcate the request on chat/call
+    // // let bifurcater = thread::spawn(move || loop {
+    // //     thread::sleep(Duration::from_secs(3));
+    // //     task_assigner::bifurcator::bifurcate_task();
+    // // });
 
-    let escalation_monitor = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(4));
-        task_assigner::escalation_monitor::esc_level_monitor();
-        println!("escalation level is changed!!");
-    });
+    // //bifercate on all of the data like call/chat , skills , lan , levels
+    // let bifurcater_esc = thread::spawn(move || loop {
+    //     thread::sleep(Duration::from_secs(2));
+    //     task_assigner::bifurcator::bifurcate_on_escalation();
+    // });
 
-    // assign the task if the emp is available
-    let assigner = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(3));
-        assigner::assign();
-        println!("Task is assigned!!!");
-    });
+    // let escalation_monitor = thread::spawn(move || loop {
+    //     thread::sleep(Duration::from_secs(4));
+    //     task_assigner::escalation_monitor::esc_level_monitor();
+    //     println!("escalation level is changed!!");
+    // });
 
-    let skill_changer = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(10));
-        data_changer::skill_changer();
-        println!("skill is Shuffled!!");
-    });
-    let language_changer = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(10));
-        data_changer::language_changer();
-        println!("language is Shuffled!!");
-    });
-    let status_changer = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(10));
-        data_changer::status_changer();
-        println!("status is Shuffle!!");
-    });
+    // // assign the task if the emp is available
+    // let assigner = thread::spawn(move || loop {
+    //     thread::sleep(Duration::from_secs(3));
+    //     assigner::assign();
+    //     println!("Task is assigned!!!");
+    // });
 
-    data_adder.join().unwrap();
-    // bifurcater.join().unwrap();
-    bifurcater_esc.join().unwrap();
-    escalation_monitor.join().unwrap();
-    assigner.join().unwrap();
-    skill_changer.join().unwrap();
-    language_changer.join().unwrap();
-    status_changer.join().unwrap();
+    // let skill_changer = thread::spawn(move || loop {
+    //     thread::sleep(Duration::from_secs(10));
+    //     data_changer::skill_changer();
+    //     println!("skill is Shuffled!!");
+    // });
+    // let language_changer = thread::spawn(move || loop {
+    //     thread::sleep(Duration::from_secs(10));
+    //     data_changer::language_changer();
+    //     println!("language is Shuffled!!");
+    // });
+    // let status_changer = thread::spawn(move || loop {
+    //     thread::sleep(Duration::from_secs(10));
+    //     data_changer::status_changer();
+    //     println!("status is Shuffle!!");
+    // });
+
+    // data_adder.join().unwrap();
+    // // bifurcater.join().unwrap();
+    // bifurcater_esc.join().unwrap();
+    // escalation_monitor.join().unwrap();
+    // assigner.join().unwrap();
+    // skill_changer.join().unwrap();
+    // language_changer.join().unwrap();
+    // status_changer.join().unwrap();
+    
+// }
+
+#[tokio::main]
+async fn main(){
+    //for rest_api only 
+    //starting the server
+    start_rest_api_server().await;
 }
