@@ -1,0 +1,60 @@
+syntax = "proto3";
+package services; 
+
+service employee {
+  rpc get_employee (Id) returns (Response);
+  rpc add_employee (EmpRequest) returns (Response);
+  rpc put_employee (EmpRequest) returns (Response);
+  rpc delete_employee (Id) returns (Response);
+}
+
+service student {
+  rpc get_student (Id) returns (Response);
+  rpc add_student (StudRequest) returns (Response);
+  rpc put_student (StudRequest) returns (Response);
+  rpc delete_student (Id) returns (Response);
+}
+
+service customer {
+  rpc get_customer (Id) returns (Response);
+  rpc add_customer (CusRequest) returns (Response);
+  rpc put_customer (CusRequest) returns (Response);
+  rpc delete_customer (Id) returns (Response);
+}
+
+message Id {
+  string id = 1;
+}
+
+message EmpRequest {
+  int32 id = 1;
+  string name = 2;
+  int32 age = 3;
+  repeated string skills = 4;
+  string position = 5;
+  int32 experience_years = 6;
+}
+
+message StudRequest {
+  int32 id = 1;
+  string name = 2;
+  string phone = 3;
+  string email = 4;
+  string city = 5;
+  string address = 6;
+  repeated int32 marks = 7;
+}
+
+message CusRequest {
+  int32 id = 1;
+  string name = 2;
+  repeated string skills = 3;
+  string status = 4;
+  string language = 5;
+}
+
+message Response {
+  int32 status = 1;
+  string message = 2;
+  string data = 3;
+}
