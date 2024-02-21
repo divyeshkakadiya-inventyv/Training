@@ -39,12 +39,11 @@ impl Student for StudentService{
     async fn add_student(&self , payload : Request<StudRequest>) -> Result<Response<Resp> , Status>  {
         let inner_payload = payload.into_inner().clone(); // Cloning the payload
         let value = format!(
-            "id: {}, name: {}, phone: {}, email: {}, city: {}, address: {}, marks: {:?}",
+            "id: {}, name: {}, phone: {}, email: {} , address: {}, marks: {:?}",
             inner_payload.id,
             inner_payload.name,
             inner_payload.phone,
             inner_payload.email,
-            inner_payload.city,
             inner_payload.address,
             inner_payload.marks
         );   
@@ -92,12 +91,11 @@ impl Student for StudentService{
         let inner_payload = payload.into_inner().clone(); // Cloning the payload
         if let Ok(data) = get_data(format!("s-{}" , inner_payload.id)).await{
             let value = format!(
-                "id: {}, name: {}, phone: {}, email: {}, city: {}, address: {}, marks: {:?}",
+                "id: {}, name: {}, phone: {}, email: {}, address: {}, marks: {:?}",
                 inner_payload.id,
                 inner_payload.name,
                 inner_payload.phone,
                 inner_payload.email,
-                inner_payload.city,
                 inner_payload.address,
                 inner_payload.marks
             ); 

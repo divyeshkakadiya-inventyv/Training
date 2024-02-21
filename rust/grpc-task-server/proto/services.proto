@@ -40,7 +40,6 @@ message StudRequest {
   string name = 2;
   string phone = 3;
   string email = 4;
-  string city = 5;
   string address = 6;
   repeated int32 marks = 7;
 }
