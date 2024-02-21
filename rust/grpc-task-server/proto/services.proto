@@ -2,24 +2,24 @@ syntax = "proto3";
 package services; 
 
 service employee {
-  rpc get_employee (Id) returns (Response);
-  rpc add_employee (EmpRequest) returns (Response);
-  rpc put_employee (EmpRequest) returns (Response);
-  rpc delete_employee (Id) returns (Response);
+  rpc get_employee (Id) returns (Resp);
+  rpc add_employee (EmpRequest) returns (Resp);
+  rpc put_employee (EmpRequest) returns (Resp);
+  rpc delete_employee (Id) returns (Resp);
 }
 
 service student {
-  rpc get_student (Id) returns (Response);
-  rpc add_student (StudRequest) returns (Response);
-  rpc put_student (StudRequest) returns (Response);
-  rpc delete_student (Id) returns (Response);
+  rpc get_student (Id) returns (Resp);
+  rpc add_student (StudRequest) returns (Resp);
+  rpc put_student (StudRequest) returns (Resp);
+  rpc delete_student (Id) returns (Resp);
 }
 
 service customer {
-  rpc get_customer (Id) returns (Response);
-  rpc add_customer (CusRequest) returns (Response);
-  rpc put_customer (CusRequest) returns (Response);
-  rpc delete_customer (Id) returns (Response);
+  rpc get_customer (Id) returns (Resp);
+  rpc add_customer (CusRequest) returns (Resp);
+  rpc put_customer (CusRequest) returns (Resp);
+  rpc delete_customer (Id) returns (Resp);
 }
 
 message Id {
@@ -53,7 +53,7 @@ message CusRequest {
   string language = 5;
 }
 
-message Response {
+message Resp {
   int32 status = 1;
   string message = 2;
   string data = 3;
