@@ -10,6 +10,8 @@ This root contains various Rust code samples covering different topics. Each sec
 4. [json-read&write](#json-read&write)
 5. [all_in_one](#all_in_one)
 6. [Frequency-Task](#frequency-task)
+7. [table-task-with-js](#table-task-with-js)
+8. [grpc-task-server](#grpc-task)
 
 ## shap-are-calculator
 
@@ -35,6 +37,14 @@ The `all_in_one` program has all above functionality in one program in saparate 
 
 The `frequency-task` is a module of rust to use calculate frequency and putting it into the string task.
 
+## Table-task-with-js
+
+The "Table-task-with-js" module utilizes Node functionalities to create tables and demonstrates the practical use of wasm-pack at a high level.
+
+## Grpc-task-server
+
+The "Grpc-task-server" provides a high-level overview of how the gRPC protocol operates within the Axum framework.
+
 ## Usage
 
 Clone the repository and run each Rust program separately using the following commands:
@@ -45,6 +55,8 @@ cargo run --bin area_of_shapes
 cargo run --bin json-filter
 cargo run --bin all_in_one
 cargo run --bin frequency-task
+cargo run --bin table-task-with-js
+cargo run --bin grpc-task-server
 ```
 
 ## Installation
