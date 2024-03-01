@@ -43,7 +43,7 @@ The `table-task-with-js` module utilizes Node functionalities to create tables a
 
 ## Grpc-task-server
 
-The `grpc-task-server` provides a high-level overview of how the gRPC protocol operates within the Axum framework.
+The `grpc-task` provides a high-level overview of how the gRPC protocol operates within the Axum framework.
 
 ## Usage
 
