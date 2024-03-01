@@ -41,7 +41,7 @@ The `frequency-task` is a module of rust to use calculate frequency and putting 
 
 The `table-task-with-js` module utilizes Node functionalities to create tables and demonstrates the practical use of wasm-pack at a high level.
 
-## Grpc-task-server
+## grpc-task
 
 The `grpc-task` provides a high-level overview of how the gRPC protocol operates within the Axum framework.
 
